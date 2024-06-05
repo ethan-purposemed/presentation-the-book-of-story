@@ -1,5 +1,5 @@
 {
-  "name": "presentation-feature-flags-for-the-win",
+  "name": "presentation-braze-and-you",
   "version": "0.0.0",
   "scripts": {
     "slides:assets:mkdirp": "shx mkdir -p ./html/assets",

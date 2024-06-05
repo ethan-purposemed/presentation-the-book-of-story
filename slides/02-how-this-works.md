@@ -20,9 +20,15 @@ back-end/app/services/segment_service.rb
 
 ## How do we track?
 
-![](./assets/assets/braze-track-example.png)
+##
 
-## Different between Braze Track and Track
+![](./assets/assets/track-example-be.png)
+
+##
+
+![](./assets/assets/braze-track-example-be.png)
+
+## Difference between Braze Track and Track
 
 You might notice in the snippet above that we have two events for firing events. braze_track and track
 

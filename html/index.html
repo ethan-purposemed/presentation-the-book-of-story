@@ -61,10 +61,17 @@
 </section>
 <section id="how-do-we-track" class="slide level2">
 <h2>How do we track?</h2>
-<p><img data-src="./assets/assets/braze-track-example.png" /></p>
 </section>
-<section id="different-between-braze-track-and-track" class="slide level2">
-<h2>Different between Braze Track and Track</h2>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/track-example-be.png" /></p>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/braze-track-example-be.png" /></p>
+</section>
+<section id="difference-between-braze-track-and-track" class="slide level2">
+<h2>Difference between Braze Track and Track</h2>
 <p>You might notice in the snippet above that we have two events for firing events. braze_track and track</p>
 <p>We can decide which destinations Segment passes through. Braze is not enabled by default for track</p>
 <p>When calling braze_track all that is happening is that method is calling track but deep merging the data properties and setting braze to true so Segment will pass it over</p>
@@ -77,11 +84,11 @@
 <h2>US and Canada</h2>
 <p>We’re operating in two countries with separate Segment instances, the Analytics Service handles which Segment client we use based on the country provided.</p>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-4" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/analytics_service--track--filtered.png" /></p>
 </section>
-<section id="section-3" class="slide level2">
+<section id="section-5" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/analytics_service--country-client.png" /></p>
 </section>
@@ -96,14 +103,14 @@
 <li>This package assumes window.analytics is established from Segment front-end SDK!</li>
 </ul>
 </section>
-<section id="section-4" class="slide level2">
+<section id="section-6" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/track-analytics-event.png" /> <img data-src="./assets/assets/track-event-example-code.png" /></p>
 </section>
 <section id="why-do-we-have-track-event-and-track-analytics-event" class="slide level2">
 <h2>Why do we have track Event and track Analytics Event?</h2>
 </section>
-<section id="section-5" class="slide level2">
+<section id="section-7" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/track-event.png" /></p>
 </section>
@@ -113,22 +120,22 @@
 <section id="the-difference-here-is-track-event-is-leveraging-types" class="slide level2">
 <h2>The difference here is track event is leveraging types</h2>
 </section>
-<section id="section-6" class="slide level2">
+<section id="section-8" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/types.png" /></p>
 </section>
-<section id="section-7" class="slide level2">
+<section id="section-9" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/track-event-type.png" /> <img data-src="./assets/assets/track-event-type-example.png" /></p>
 </section>
-<section id="section-8" class="slide level2">
+<section id="section-10" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/track-analytics-identify.png" /></p>
 </section>
 <section id="were-not-using-analytics-identify-much-across-our-apps" class="slide level2">
 <h2>We’re not using analytics Identify much across our apps</h2>
 </section>
-<section id="section-9" class="slide level2">
+<section id="section-11" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/window-analytics-identify.png" /></p>
 </section></section>
@@ -141,7 +148,7 @@
 <h2>Rob is wanting to know when a patient signs an agreement</h2>
 <p>We think about this request</p>
 </section>
-<section id="section-10" class="slide level2">
+<section id="section-12" class="slide level2">
 <h2></h2>
 <p>Rob adds some more context that for every 100 agreements signed the developers will get a free pizza party.</p>
 </section>
@@ -176,14 +183,14 @@
 <h2>Let’s make an event</h2>
 <p>We need to figure out where to fire this event.</p>
 </section>
-<section id="section-11" class="slide level2">
+<section id="section-13" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/thinking.gif" /></p>
 </section>
 <section id="we-need-to-fire-this-event-in-the-create-agreement-mutation" class="slide level2">
 <h2>We need to fire this event in the create agreement mutation!</h2>
 </section>
-<section id="section-12" class="slide level2">
+<section id="section-14" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/agreements_code.png" /></p>
 </section>
@@ -194,7 +201,7 @@
 <section id="wait-a-minute-something-is-missing" class="slide level2">
 <h2>Wait a minute… Something is missing</h2>
 </section>
-<section id="section-13" class="slide level2">
+<section id="section-15" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/aint-much.jpg" /></p>
 </section>
@@ -210,25 +217,25 @@
 <h2>Time to test</h2>
 <p>Let’s first allow the test to receive the braze track method which will enable mocking on that method!</p>
 </section>
-<section id="section-14" class="slide level2">
+<section id="section-16" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/agreements-spec-example-01.png" /></p>
 </section>
 <section id="now-lets-run-our-mutation" class="slide level2">
 <h2>Now let’s run our mutation</h2>
 </section>
-<section id="section-15" class="slide level2">
+<section id="section-17" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/agreements-spec-example-02.png" /></p>
 </section>
 <section id="next-we-need-to-do-our-assertions" class="slide level2">
 <h2>Next, we need to do our assertions</h2>
 </section>
-<section id="section-16" class="slide level2">
+<section id="section-18" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/analytics-track-assertion.png" /></p>
 </section>
-<section id="section-17" class="slide level2">
+<section id="section-19" class="slide level2">
 <h2></h2>
 <p>We expected the AnalyticsService to be called twice without actually calling out to Segment at all!</p>
 </section>
@@ -243,19 +250,19 @@
 <h2>Segment</h2>
 <p>Now that we verified it is firing within our app and being stored in the events table, let’s check if it’s being sent to Segment!</p>
 </section>
-<section id="section-18" class="slide level2">
+<section id="section-20" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/segment_step_1.png" /></p>
 </section>
-<section id="section-19" class="slide level2">
+<section id="section-21" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/segment_step_2.png" /></p>
 </section>
-<section id="section-20" class="slide level2">
+<section id="section-22" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/segment_step_3.png" /></p>
 </section>
-<section id="section-21" class="slide level2">
+<section id="section-23" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/segment_step_4.png" /></p>
 </section>
@@ -263,15 +270,15 @@
 <h2>Braze</h2>
 <p>Now that Segment is verified, let’s go check in on Braze and see if we’re able to see the event under the “Custom Events” box in the profile</p>
 </section>
-<section id="section-22" class="slide level2">
+<section id="section-24" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/braze_step_1.png" /></p>
 </section>
-<section id="section-23" class="slide level2">
+<section id="section-25" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/braze_step_2.png" /></p>
 </section>
-<section id="section-24" class="slide level2">
+<section id="section-26" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/braze_step_3.png" /></p>
 </section>
@@ -285,11 +292,11 @@
 <section id="first-lets-make-a-typed-event-in-track-event.ts" class="slide level2">
 <h2>First, let’s make a typed event in track-event.ts</h2>
 </section>
-<section id="section-25" class="slide level2">
+<section id="section-27" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/agreement-viewed-example.png" /></p>
 </section>
-<section id="section-26" class="slide level2">
+<section id="section-28" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/agreements-example-2.png" /></p>
 </section>
@@ -304,7 +311,7 @@
 <section id="since-we-dont-store-these-events-in-our-heroku-database-we-need-to-verify-in-segment" class="slide level2">
 <h2>Since we don’t store these events in our Heroku database, we need to verify in Segment</h2>
 </section>
-<section id="section-27" class="slide level2">
+<section id="section-29" class="slide level2">
 <h2></h2>
 <p>The steps for verifying Segment are the same as the back-end example so I’ll spare the repetition!</p>
 </section>
@@ -315,17 +322,18 @@
 <section id="we-can-do-this-with-segment-traits-on-the-user" class="slide level2">
 <h2>We can do this with segment traits on the user!</h2>
 </section>
-<section id="section-28" class="slide level2">
+<section id="section-30" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/segment_traits.png" /></p>
 </section>
-<section id="when-the-patient-signs-up-or-is-updated-this-will-be-passed-along-to-the-custom-attributes-page-in-the-braze-profile" class="slide level2">
-<h2>When the patient signs up or is updated this will be passed along to the Custom Attributes page in the Braze profile</h2>
+<section id="how-does-this-get-to-braze" class="slide level2">
+<h2>How does this get to Braze?</h2>
+<p>We are able to call identify again and pass in the new segment properties which then should map over to Braze. Whenever the patient updates their profile this should happen and it also occurs at sign up.</p>
 </section>
 <section id="alright-were-all-good-now" class="slide level2">
 <h2>Alright, we’re all good now!</h2>
 </section>
-<section id="section-29" class="slide level2">
+<section id="section-31" class="slide level2">
 <h2></h2>
 <p><img data-src="./assets/assets/pizza_time.gif" /></p>
 <style>

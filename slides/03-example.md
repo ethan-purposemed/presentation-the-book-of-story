@@ -169,7 +169,9 @@ A new request has come in, we want to add a custom attribute in Braze for the nu
 
 ![](./assets/assets/segment_traits.png)
 
-## When the patient signs up or is updated this will be passed along to the Custom Attributes page in the Braze profile
+## How does this get to Braze?
+
+We are able to call identify again and pass in the new segment properties which then should map over to Braze. Whenever the patient updates their profile this should happen and it also occurs at sign up.
 
 ## Alright, we're all good now!
 
