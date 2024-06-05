@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>01-intro</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reset.css">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/league.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="braze-and-you" class="title-slide slide level1">
+<h1>Braze and You</h1>
+
+</section>
+
+<section>
+<section id="section" class="title-slide slide level1">
+<h1></h1>
+<p><img data-src="./assets/assets/how-does-this-work.jpg" /></p>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/diagram.png" /></p>
+</section>
+<section id="analytics-service-ruby" class="slide level2">
+<h2>Analytics Service (Ruby)</h2>
+<p>back-end/app/services/analytics_service.rb</p>
+<p><img data-src="./assets/assets/analytics_service.png" /></p>
+</section>
+<section id="segment-service-ruby" class="slide level2">
+<h2>Segment Service (Ruby)</h2>
+<p>back-end/app/services/segment_service.rb</p>
+<p><img data-src="./assets/assets/segment_service.png" /></p>
+</section>
+<section id="how-do-we-track" class="slide level2">
+<h2>How do we track?</h2>
+<p><img data-src="./assets/assets/braze-track-example.png" /></p>
+</section>
+<section id="different-between-braze-track-and-track" class="slide level2">
+<h2>Different between Braze Track and Track</h2>
+<p>You might notice in the snippet above that we have two events for firing events. braze_track and track</p>
+<p>We can decide which destinations Segment passes through. Braze is not enabled by default for track</p>
+<p>When calling braze_track all that is happening is that method is calling track but deep merging the data properties and setting braze to true so Segment will pass it over</p>
+</section>
+<section id="how-do-we-identify" class="slide level2">
+<h2>How do we identify?</h2>
+<p><img data-src="./assets/assets/analytics_service--identify.png" /></p>
+</section>
+<section id="us-and-canada" class="slide level2">
+<h2>US and Canada</h2>
+<p>We’re operating in two countries with separate Segment instances, the Analytics Service handles which Segment client we use based on the country provided.</p>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/analytics_service--track--filtered.png" /></p>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/analytics_service--country-client.png" /></p>
+</section>
+<section id="what-about-the-front-end" class="slide level2">
+<h2>What about the front-end?</h2>
+</section>
+<section id="pmanalytics" class="slide level2">
+<h2><span class="citation" data-cites="pm/analytics">@pm/analytics</span></h2>
+<ul>
+<li>There is trackEvent, trackAnalyticsEvent, trackPageView, and identify methods available</li>
+<li>This package provides Google Tag manager utilities</li>
+<li>This package assumes window.analytics is established from Segment front-end SDK!</li>
+</ul>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/track-analytics-event.png" /> <img data-src="./assets/assets/track-event-example-code.png" /></p>
+</section>
+<section id="why-do-we-have-track-event-and-track-analytics-event" class="slide level2">
+<h2>Why do we have track Event and track Analytics Event?</h2>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/track-event.png" /></p>
+</section>
+<section id="surprise-were-using-track-analytics-event-within-track-event" class="slide level2">
+<h2>Surprise! We’re using track Analytics Event within track Event</h2>
+</section>
+<section id="the-difference-here-is-track-event-is-leveraging-types" class="slide level2">
+<h2>The difference here is track event is leveraging types</h2>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/types.png" /></p>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/track-event-type.png" /> <img data-src="./assets/assets/track-event-type-example.png" /></p>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/track-analytics-identify.png" /></p>
+</section>
+<section id="were-not-using-analytics-identify-much-across-our-apps" class="slide level2">
+<h2>We’re not using analytics Identify much across our apps</h2>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/window-analytics-identify.png" /></p>
+</section></section>
+<section>
+<section id="time-for-a-scenario" class="title-slide slide level1">
+<h1>Time for a scenario</h1>
+
+</section>
+<section id="rob-is-wanting-to-know-when-a-patient-signs-an-agreement" class="slide level2">
+<h2>Rob is wanting to know when a patient signs an agreement</h2>
+<p>We think about this request</p>
+</section>
+<section id="section-10" class="slide level2">
+<h2></h2>
+<p>Rob adds some more context that for every 100 agreements signed the developers will get a free pizza party.</p>
+</section>
+<section id="we-are-now-committed-to-the-work" class="slide level2">
+<h2>We are now committed to the work</h2>
+<p><img data-src="./assets/assets/lets-do-this.gif" /></p>
+</section>
+<section id="we-dont-need-an-event-for-this" class="slide level2">
+<h2>We don’t need an event for this</h2>
+<p>You’re right but for this presentation let’s pretend we do need this as an event for sending a patient an email through Braze for every agreement being signed</p>
+</section>
+<section id="we-need-to-ask-some-questions" class="slide level2">
+<h2>We need to ask some questions</h2>
+<ol type="1">
+<li>Do we want all agreements being emailed to patients or just specific ones?</li>
+<li>What properties do you need on that event?</li>
+<li>Is there any other events you foresee us needing to add?</li>
+</ol>
+</section>
+<section id="answers-are-in" class="slide level2">
+<h2>Answers are in</h2>
+<ol type="1">
+<li>We need all the agreements being emailed</li>
+<li>We need agreements name, the ip address, and the created at timestamp agreement to capture the version</li>
+<li>Nothing at the moment</li>
+</ol>
+</section>
+<section id="okay-lets-get-started" class="slide level2">
+<h2>Okay, let’s get started!</h2>
+</section>
+<section id="lets-make-an-event" class="slide level2">
+<h2>Let’s make an event</h2>
+<p>We need to figure out where to fire this event.</p>
+</section>
+<section id="section-11" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/thinking.gif" /></p>
+</section>
+<section id="we-need-to-fire-this-event-in-the-create-agreement-mutation" class="slide level2">
+<h2>We need to fire this event in the create agreement mutation!</h2>
+</section>
+<section id="section-12" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/agreements_code.png" /></p>
+</section>
+<section id="all-done" class="slide level2">
+<h2>All done!</h2>
+<p><img data-src="./assets/assets/jobs-finished.gif" /> <img data-src="./assets/assets/pizza-party.gif" /></p>
+</section>
+<section id="wait-a-minute-something-is-missing" class="slide level2">
+<h2>Wait a minute… Something is missing</h2>
+</section>
+<section id="section-13" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/aint-much.jpg" /></p>
+</section>
+<section id="lets-write-a-test-for-this-work" class="slide level2">
+<h2>Let’s write a test for this work</h2>
+<p>But we don’t want to actually be calling Segment when firing events. Let’s talk about mocks</p>
+</section>
+<section id="rspec-mocking" class="slide level2">
+<h2>RSpec Mocking</h2>
+<p>When writing tests in our code we can leverage mocks to isolate our tests to focus on the actual code being tested and not the state of external dependencies.</p>
+</section>
+<section id="time-to-test" class="slide level2">
+<h2>Time to test</h2>
+<p>Let’s first allow the test to receive the braze track method which will enable mocking on that method!</p>
+</section>
+<section id="section-14" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/agreements-spec-example-01.png" /></p>
+</section>
+<section id="now-lets-run-our-mutation" class="slide level2">
+<h2>Now let’s run our mutation</h2>
+</section>
+<section id="section-15" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/agreements-spec-example-02.png" /></p>
+</section>
+<section id="next-we-need-to-do-our-assertions" class="slide level2">
+<h2>Next, we need to do our assertions</h2>
+</section>
+<section id="section-16" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/analytics-track-assertion.png" /></p>
+</section>
+<section id="section-17" class="slide level2">
+<h2></h2>
+<p>We expected the AnalyticsService to be called twice without actually calling out to Segment at all!</p>
+</section>
+<section id="lets-verify-this-is-working" class="slide level2">
+<h2>Let’s verify this is working!</h2>
+</section>
+<section id="admin-app" class="slide level2">
+<h2>Admin App ✅</h2>
+<p><img data-src="./assets/assets/agreement-event-firing.png" /></p>
+</section>
+<section id="segment" class="slide level2">
+<h2>Segment</h2>
+<p>Now that we verified it is firing within our app and being stored in the events table, let’s check if it’s being sent to Segment!</p>
+</section>
+<section id="section-18" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/segment_step_1.png" /></p>
+</section>
+<section id="section-19" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/segment_step_2.png" /></p>
+</section>
+<section id="section-20" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/segment_step_3.png" /></p>
+</section>
+<section id="section-21" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/segment_step_4.png" /></p>
+</section>
+<section id="braze" class="slide level2">
+<h2>Braze</h2>
+<p>Now that Segment is verified, let’s go check in on Braze and see if we’re able to see the event under the “Custom Events” box in the profile</p>
+</section>
+<section id="section-22" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/braze_step_1.png" /></p>
+</section>
+<section id="section-23" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/braze_step_2.png" /></p>
+</section>
+<section id="section-24" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/braze_step_3.png" /></p>
+</section>
+<section id="sudden-request" class="slide level2">
+<h2>Sudden request!</h2>
+<p>The event has been in production now for some time and a request has come up to fire an event whenever the agreement has been viewed on the front-end.</p>
+</section>
+<section id="lets-do-this" class="slide level2">
+<h2>Let’s do this!</h2>
+</section>
+<section id="first-lets-make-a-typed-event-in-track-event.ts" class="slide level2">
+<h2>First, let’s make a typed event in track-event.ts</h2>
+</section>
+<section id="section-25" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/agreement-viewed-example.png" /></p>
+</section>
+<section id="section-26" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/agreements-example-2.png" /></p>
+</section>
+<section id="now-lets-use-this-event-in-our-app" class="slide level2">
+<h2>Now, let’s use this event in our app!</h2>
+<p><img data-src="./assets/assets/pending-agreement-gate-code.png" /></p>
+</section>
+<section id="now-lets-write-a-test-for-this" class="slide level2">
+<h2>Now, let’s write a test for this!</h2>
+<p><img data-src="./assets/assets/tracks-test.png" /></p>
+</section>
+<section id="since-we-dont-store-these-events-in-our-heroku-database-we-need-to-verify-in-segment" class="slide level2">
+<h2>Since we don’t store these events in our Heroku database, we need to verify in Segment</h2>
+</section>
+<section id="section-27" class="slide level2">
+<h2></h2>
+<p>The steps for verifying Segment are the same as the back-end example so I’ll spare the repetition!</p>
+</section>
+<section id="another-request" class="slide level2">
+<h2>Another request!</h2>
+<p>A new request has come in, we want to add a custom attribute in Braze for the number of agreements signed by the patient.</p>
+</section>
+<section id="we-can-do-this-with-segment-traits-on-the-user" class="slide level2">
+<h2>We can do this with segment traits on the user!</h2>
+</section>
+<section id="section-28" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/segment_traits.png" /></p>
+</section>
+<section id="when-the-patient-signs-up-or-is-updated-this-will-be-passed-along-to-the-custom-attributes-page-in-the-braze-profile" class="slide level2">
+<h2>When the patient signs up or is updated this will be passed along to the Custom Attributes page in the Braze profile</h2>
+</section>
+<section id="alright-were-all-good-now" class="slide level2">
+<h2>Alright, we’re all good now!</h2>
+</section>
+<section id="section-29" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/pizza_time.gif" /></p>
+<style>
+#section-16 p > img {
+  width: 650px;
+}
+</style>
+</section></section>
+<section>
+<section id="considerations-you-should-make" class="title-slide slide level1">
+<h1>Considerations you should make</h1>
+
+</section>
+<section id="event-names" class="slide level2">
+<h2>Event names</h2>
+<p>It’s worth highlighting that updating event names can break reports and also cause issues in our lifecycle communications. In short, if you’re updating an existing name it’s likely you’re impacting another department!</p>
+</section>
+<section id="bigquery" class="slide level2">
+<h2>BigQuery</h2>
+<p>Something worth highlighting is each event name we have creates a new table within BigQuery! This can make things complex for our data team. You should try to prefer generic names that can be differentiated with properties rather than unique names</p>
+</section>
+<section id="for-example" class="slide level2">
+<h2>For example</h2>
+<p>Shopping Cart Button Clicked could actually be Button Clicked and the property can have a “type” identifier for ShoppingCart</p>
+</section>
+<section id="a-braze-consideration-on-generic-names" class="slide level2">
+<h2>A Braze consideration on generic names</h2>
+<p>Generic names can be leveraged in Braze to trigger or track conversions. They however, cannot be used to segment users and populate custom data. There are options available such as webhooks to tweak the data to incorporate into Braze.</p>
+</section>
+<section id="for-braze-just-ensure-were-all-on-the-same-page-and-understand-trade-offs-for-generic-vs-unique-event-names." class="slide level2">
+<h2>For Braze, just ensure we’re all on the same page and understand trade-offs for generic vs unique event names.</h2>
+<p>It’s likely an event will need to drill further into just triggering and conversion tracking so be sure to work closely with lifecycle on new events and existing event updates!</p>
+</section></section>
+<section>
+<section id="recap" class="title-slide slide level1">
+<h1>Recap</h1>
+<p><img data-src="./assets/assets/brooklyn-99.gif" /></p>
+</section>
+<section id="segment-1" class="slide level2">
+<h2>Segment</h2>
+<p>Segment is our CDP that our events get emitted to and then funneled to various destinations all managed through the Dashboard</p>
+</section>
+<section id="braze-1" class="slide level2">
+<h2>Braze</h2>
+<p>Braze is our customer engagement tool that allows us to engage with a segment of patients when various events fire in our apps</p>
+</section>
+<section id="analytics-service-segment-service-and-pmanalytics" class="slide level2">
+<h2>Analytics Service, Segment Service, and <span class="citation" data-cites="pm/analytics">@pm/analytics</span></h2>
+<p>We have AnalyticsService in our toolkit for firing events to Segment from our back-end which uses SegmentService</p>
+<p>We have <span class="citation" data-cites="pm/analytics">@pm/analytics</span> on the front-end to fire front-end events that go directly to Segment and then mapped to various destinations</p>
+</section>
+<section id="track-vs-braze-track" class="slide level2">
+<h2>Track vs Braze Track</h2>
+<p>In AnalyticsService we have track and braze_track, braze_track is just calling into track but it’s passing braze as true in the properties to ensure this event goes to Braze!</p>
+<p>Track will not send to Braze by default!</p>
+</section>
+<section id="impacts" class="slide level2">
+<h2>Impacts</h2>
+<p>When making updates to existing events or adding new events it’s important to inform other departments such as marketing, ops, and data.</p>
+<p>If you’re updating an existing event you’re likely going to cause an issue downstream so be sure to coordinate!</p>
+<p>When adding new events, coordinate with other teams to ensure the event makes sense for their workflows and be on the same page!</p>
+</section>
+<section id="thanks-any-questions" class="slide level2">
+<h2>Thanks, any questions?</h2>
+<p><img data-src="./assets/assets/presentation-over.gif" /></p>
+<script>
+/* Global Styles go here */
+
+
+
+</script>
+<style>
+.reveal pre, .reveal code {
+  background: white;
+}
+
+.reveal img {
+  max-height: 84vh;
+  width: auto;
+}
+</style>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
