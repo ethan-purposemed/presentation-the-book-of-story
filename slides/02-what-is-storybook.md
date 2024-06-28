@@ -34,4 +34,4 @@ Overtime web has become more complex and component-driven tools have become a gr
 
 ## Component driven development
 
-By leveraging Storybook we can build in isolation which is a benefit for both developers, designers, and testers. Developer especially benefits from this as it allows them to focus on the component and not the rest of the application and actually is a good way to right components that are easy to test and not tied to any external dependencies.
+By leveraging Storybook we can build in isolation which is a benefit for both developers, designers, and testers. Developer especially benefits from this as it allows them to focus on the component and not the rest of the application and actually is a good way to write components that are easy to test and not tied to any external dependencies.
