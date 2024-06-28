@@ -16,8 +16,70 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="reveal.js/css/theme/league.css" id="theme">
+  <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
@@ -35,386 +97,576 @@
     <div class="slides">
 
 
-<section id="braze-and-you" class="title-slide slide level1">
-<h1>Braze and You</h1>
+<section>
+<section id="the-book-of-story" class="title-slide slide level1">
+<h1>The Book of Story</h1>
 
 </section>
-
+<section id="what-is-storybook" class="slide level2">
+<h2>What is Storybook?</h2>
+<blockquote>
+<p>Storybook is a frontend workshop for building UI components and pages in isolation. It helps you develop and share hard-to-reach states and edge cases without needing to run your whole app. Thousands of teams use it for UI development, testing, and documentation. It’s open source and free.</p>
+</blockquote>
+</section>
+<section id="pretty-good-support" class="slide level2">
+<h2>Pretty good support</h2>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/storybook-libraries.png" /></p>
+</section>
+<section id="main-concepts" class="slide level2">
+<h2>Main concepts</h2>
+</section>
+<section id="stories" class="slide level2">
+<h2>Stories</h2>
+<p>Captures rendered state of a UI component. Components can be a collection of stories where each story is a different state of that component.</p>
+</section>
+<section id="docs" class="slide level2">
+<h2>Docs</h2>
+<p>Storybook is able to analyze your components and automatically generate documentation for them.</p>
+</section>
+<section id="testing" class="slide level2">
+<h2>Testing</h2>
+<p>When we make components we make stories, but we also need to test them. You can write tests for your stories and they will be run in Storybook with pretty low-effort.</p>
+</section>
+<section id="sharing" class="slide level2">
+<h2>Sharing</h2>
+<p>We’re able to publish our stories to expose your work with others either internally or publicly. Additionally, you can showcase your stories in apps like Notion and even Figma!</p>
+</section>
+<section id="why-do-we-need-this-thing" class="slide level2">
+<h2>Why do we need this thing?</h2>
+</section>
+<section id="the-web-landscape-changing" class="slide level2">
+<h2>The web landscape changing</h2>
+<p>Overtime web has become more complex and component-driven tools have become a great way to break down really complex interfaces into smaller, more manageable pieces. These UI components can be difficult to test due to being tangled up with the rest of the application logic.</p>
+</section>
+<section id="component-driven-development" class="slide level2">
+<h2>Component driven development</h2>
+<p>By leveraging Storybook we can build in isolation which is a benefit for both developers, designers, and testers. Developer especially benefits from this as it allows them to focus on the component and not the rest of the application and actually is a good way to right components that are easy to test and not tied to any external dependencies.</p>
+</section></section>
 <section>
-<section id="section" class="title-slide slide level1">
-<h1></h1>
-<p><img data-src="./assets/assets/how-does-this-work.jpg" /></p>
+<section id="walkthrough-of-storybook" class="title-slide slide level1">
+<h1>Walkthrough of Storybook</h1>
+
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/diagram.png" /></p>
+<p><img data-src="./assets/assets/storybook-dashboard.png" /></p>
 </section>
-<section id="analytics-service-ruby" class="slide level2">
-<h2>Analytics Service (Ruby)</h2>
-<p>back-end/app/services/analytics_service.rb</p>
-<p><img data-src="./assets/assets/analytics_service.png" /></p>
+<section id="writing-stories" class="slide level2">
+<h2>Writing stories</h2>
+<ul>
+<li>Conventionally stories are written in a <code>*.stories.js</code> or <code>*.story.ts</code> file.</li>
+<li>Stories are written in the Component Story Format which is based on ESM</li>
+<li>Additional exports will be used to capture the distinct states of that component.</li>
+</ul>
 </section>
-<section id="segment-service-ruby" class="slide level2">
-<h2>Segment Service (Ruby)</h2>
-<p>back-end/app/services/segment_service.rb</p>
-<p><img data-src="./assets/assets/segment_service.png" /></p>
+<section id="default-export" class="slide level2">
+<h2>Default export</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="im">import</span> <span class="im">type</span> { Meta } from <span class="st">&quot;@storybook/react&quot;</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="im">import</span> { Button } from <span class="st">&quot;./Button&quot;</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>const meta<span class="op">:</span> Meta<span class="op">&lt;</span>typeof Button<span class="op">&gt;</span> <span class="op">=</span> {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>  component<span class="op">:</span> Button<span class="op">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>export default meta<span class="op">;</span></span></code></pre></div>
 </section>
-<section id="how-do-we-track" class="slide level2">
-<h2>How do we track?</h2>
+<section id="named-export-for-component-state" class="slide level2">
+<h2>Named export for component state</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="im">import</span> <span class="im">type</span> { Meta<span class="op">,</span> StoryObj } from <span class="st">&quot;@storybook/react&quot;</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="im">import</span> { Button } from <span class="st">&quot;./Button&quot;</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>const meta<span class="op">:</span> Meta<span class="op">&lt;</span>typeof Button<span class="op">&gt;</span> <span class="op">=</span> {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>  component<span class="op">:</span> Button<span class="op">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>export default meta<span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="kw">type</span> Story <span class="op">=</span> StoryObj<span class="op">&lt;</span>typeof Button<span class="op">&gt;;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>export const Primary<span class="op">:</span> Story <span class="op">=</span> {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>  args<span class="op">:</span> {</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>    primary<span class="op">:</span> true<span class="op">,</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>    label<span class="op">:</span> <span class="st">&quot;Button&quot;</span><span class="op">,</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
+</section>
+<section id="we-can-build-stories-upon-each-other" class="slide level2">
+<h2>We can build stories upon each other</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>export const Primary<span class="op">:</span> Story <span class="op">=</span> {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  args<span class="op">:</span> {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>    backgroundColor<span class="op">:</span> <span class="st">&quot;#ff0&quot;</span><span class="op">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    label<span class="op">:</span> <span class="st">&quot;Button&quot;</span><span class="op">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>export const Secondary<span class="op">:</span> Story <span class="op">=</span> {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>  args<span class="op">:</span> {</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>    <span class="op">...</span>Primary<span class="op">.</span><span class="at">args</span><span class="op">,</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>    label<span class="op">:</span> <span class="st">&quot;😄👍😍💯&quot;</span><span class="op">,</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
+</section>
+<section id="remixing-stories" class="slide level2">
+<h2>Remixing stories</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="im">import</span> <span class="im">type</span> { Meta<span class="op">,</span> StoryObj } from <span class="st">&quot;@storybook/react&quot;</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="im">import</span> { ButtonGroup } from <span class="st">&quot;../ButtonGroup&quot;</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="co">//👇 Imports the Button stories</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="im">import</span> <span class="op">*</span> <span class="im">as</span> ButtonStories from <span class="st">&quot;./Button.stories&quot;</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>const meta<span class="op">:</span> Meta<span class="op">&lt;</span>typeof ButtonGroup<span class="op">&gt;</span> <span class="op">=</span> {</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a>  component<span class="op">:</span> ButtonGroup<span class="op">,</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a>export default meta<span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a><span class="kw">type</span> Story <span class="op">=</span> StoryObj<span class="op">&lt;</span>typeof ButtonGroup<span class="op">&gt;;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>export const Pair<span class="op">:</span> Story <span class="op">=</span> {</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a>  args<span class="op">:</span> {</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a>    buttons<span class="op">:</span> [</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a>      { <span class="op">...</span>ButtonStories<span class="op">.</span><span class="at">Primary</span><span class="op">.</span><span class="at">args</span> }<span class="op">,</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true"></a>      { <span class="op">...</span>ButtonStories<span class="op">.</span><span class="at">Secondary</span><span class="op">.</span><span class="at">args</span> }<span class="op">,</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true"></a>    ]<span class="op">,</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true"></a>    orientation<span class="op">:</span> <span class="st">&quot;horizontal&quot;</span><span class="op">,</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
+</section>
+<section id="remixing-stories-1" class="slide level2">
+<h2>Remixing stories</h2>
+<ul>
+<li>When the button signature changes we just need to update the button story and the button group will automatically pick up the changes.</li>
+</ul>
+</section>
+<section id="parameters" class="slide level2">
+<h2>Parameters</h2>
+<ul>
+<li>Parameters are Storybooks metadata that can be used to configure the storybook environment.</li>
+</ul>
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/track-example-be.png" /></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="im">import</span> <span class="im">type</span> { Meta<span class="op">,</span> StoryObj } from <span class="st">&quot;@storybook/react&quot;</span><span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="im">import</span> { Button } from <span class="st">&quot;./Button&quot;</span><span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>const meta<span class="op">:</span> Meta<span class="op">&lt;</span>typeof Button<span class="op">&gt;</span> <span class="op">=</span> {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>  component<span class="op">:</span> Button<span class="op">,</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>  <span class="co">// 👇 Meta-level parameters</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>  parameters<span class="op">:</span> {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>    backgrounds<span class="op">:</span> {</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>      <span class="cf">default</span><span class="op">:</span> <span class="st">&quot;dark&quot;</span><span class="op">,</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>    }<span class="op">,</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>export default meta<span class="op">;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a><span class="kw">type</span> Story <span class="op">=</span> StoryObj<span class="op">&lt;</span>typeof Button<span class="op">&gt;;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true"></a>export const Basic<span class="op">:</span> Story <span class="op">=</span> {}<span class="op">;</span></span></code></pre></div>
+</section>
+<section id="decorators" class="slide level2">
+<h2>Decorators</h2>
+<ul>
+<li>Decorators allow us to wrap our stories in markup when rendering a story. This is useful for things like setting a theme or a layout wrapper.</li>
+<li>You can configure decorators at the story level, component level, or even the global level.</li>
+</ul>
 </section>
 <section id="section-3" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/braze-track-example-be.png" /></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="im">import</span> <span class="im">type</span> { Meta<span class="op">,</span> StoryObj } from <span class="st">&quot;@storybook/react&quot;</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="im">import</span> { Button } from <span class="st">&quot;./Button&quot;</span><span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>const meta<span class="op">:</span> Meta<span class="op">&lt;</span>typeof Button<span class="op">&gt;</span> <span class="op">=</span> {</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>  component<span class="op">:</span> Button<span class="op">,</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>  decorators<span class="op">:</span> [</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>    (Story) <span class="kw">=&gt;</span> (</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>      <span class="op">&lt;</span>div style<span class="op">=</span>{{ margin<span class="op">:</span> <span class="st">&quot;3em&quot;</span> }}<span class="op">&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>        {<span class="co">/* 👇 Decorators in Storybook also accept a function. Replace &lt;Story/&gt; with Story() to enable it  */</span>}</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>        <span class="op">&lt;</span>Story <span class="op">/&gt;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>      <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>    )<span class="op">,</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>  ]<span class="op">,</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a>export default meta<span class="op">;</span></span></code></pre></div>
+</section></section>
+<section>
+<section id="showcasing-storybook" class="title-slide slide level1">
+<h1>Showcasing Storybook</h1>
+
 </section>
-<section id="difference-between-braze-track-and-track" class="slide level2">
-<h2>Difference between Braze Track and Track</h2>
-<p>You might notice in the snippet above that we have two events for firing events. braze_track and track</p>
-<p>We can decide which destinations Segment passes through. Braze is not enabled by default for track</p>
-<p>When calling braze_track all that is happening is that method is calling track but deep merging the data properties and setting braze to true so Segment will pass it over</p>
+<section id="we-know-about-stories-what-about-testing" class="slide level2">
+<h2>We know about stories, what about testing?</h2>
+<ul>
+<li>We can write tests for our stories and they will be run in Storybook with pretty low-effort.</li>
+<li>Often times in UI development we leverage a “spot checking” approach where we’ll run our stories and eyeball the results or leverage Figma to build the components.</li>
+</ul>
 </section>
-<section id="how-do-we-identify" class="slide level2">
-<h2>How do we identify?</h2>
-<p><img data-src="./assets/assets/analytics_service--identify.png" /></p>
+<section id="tools-available" class="slide level2">
+<h2>Tools available</h2>
+<ul>
+<li>Test runner</li>
+<li>Visual regression testing</li>
+<li>Accessibility testing</li>
+<li>Interaction testing</li>
+</ul>
 </section>
-<section id="us-and-canada" class="slide level2">
-<h2>US and Canada</h2>
-<p>We’re operating in two countries with separate Segment instances, the Analytics Service handles which Segment client we use based on the country provided.</p>
+<section id="additionally-not-focusing-for-this-talk" class="slide level2">
+<h2>Additionally (not focusing for this talk)</h2>
+<ul>
+<li>Coverage testing</li>
+<li>Snapshot testing</li>
+<li>End-to-end testing (simulate real user scenarios)</li>
+<li>Unit testing</li>
+</ul>
+</section>
+<section id="test-runner" class="slide level2">
+<h2>Test runner</h2>
+<p>Let’s install the test runner that is running on Jest.</p>
 </section>
 <section id="section-4" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/analytics_service--track--filtered.png" /></p>
+<pre class="shell"><code>npm install @storybook/test-runner --save-dev</code></pre>
+</section>
+<section id="setup-a-package-script-in-our-package.json" class="slide level2">
+<h2>Setup a package script in our package.json</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="fu">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>  <span class="dt">&quot;scripts&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    <span class="dt">&quot;test-storybook&quot;</span><span class="fu">:</span> <span class="st">&quot;test-storybook&quot;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>  <span class="fu">}</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a><span class="fu">}</span></span></code></pre></div>
 </section>
 <section id="section-5" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/analytics_service--country-client.png" /></p>
-</section>
-<section id="what-about-the-front-end" class="slide level2">
-<h2>What about the front-end?</h2>
-</section>
-<section id="pmanalytics" class="slide level2">
-<h2><span class="citation" data-cites="pm/analytics">@pm/analytics</span></h2>
-<ul>
-<li>There is trackEvent, trackAnalyticsEvent, trackPageView, and identify methods available</li>
-<li>This package provides Google Tag manager utilities</li>
-<li>This package assumes window.analytics is established from Segment front-end SDK!</li>
-</ul>
+<p>With our Storybook instance running, we can run out tests with the following command:</p>
+<pre class="shell"><code>npm run test-storybook</code></pre>
 </section>
 <section id="section-6" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/track-analytics-event.png" /> <img data-src="./assets/assets/track-event-example-code.png" /></p>
+<p><img data-src="./assets/assets/test-storybook-passing.png" /></p>
 </section>
-<section id="why-do-we-have-track-event-and-track-analytics-event" class="slide level2">
-<h2>Why do we have track Event and track Analytics Event?</h2>
+<section id="what-tests-are-passing" class="slide level2">
+<h2>What tests are passing?</h2>
+<ul>
+<li>Stories that do not contain interaction tests will just be tested that they are rendering without any errors.</li>
+<li>Stories that contain interaction tests will do the same check but also run through the assertion checks on that component.</li>
+</ul>
+</section>
+<section id="whats-a-play-function" class="slide level2">
+<h2>What’s a play function?</h2>
+<ul>
+<li>Play functions are executed after a story is rendered. They allow you to automate the interaction of your stories.</li>
+</ul>
+</section>
+<section id="lets-write-a-play-function" class="slide level2">
+<h2>Let’s write a play function</h2>
+<ul>
+<li>First, let’s install the interaction addons.</li>
+</ul>
 </section>
 <section id="section-7" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/track-event.png" /></p>
-</section>
-<section id="surprise-were-using-track-analytics-event-within-track-event" class="slide level2">
-<h2>Surprise! We’re using track Analytics Event within track Event</h2>
-</section>
-<section id="the-difference-here-is-track-event-is-leveraging-types" class="slide level2">
-<h2>The difference here is track event is leveraging types</h2>
+<pre class="shell"><code>npm install @storybook/test @storybook/addon-interactions --save-dev</code></pre>
 </section>
 <section id="section-8" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/types.png" /></p>
+<p>High level the interaction addon gives us helpers to control the execution flow of our play function. For example, we can pause, resume, rewind, and step through interactions in our stories!</p>
+</section>
+<section id="update-the-storybook-config-in-.storybookmain.ts" class="slide level2">
+<h2>Update the Storybook config in .storybook/main.ts</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="im">import</span> <span class="im">type</span> { StorybookConfig } from <span class="st">&quot;@storybook/react-vite&quot;</span><span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>const config<span class="op">:</span> StorybookConfig <span class="op">=</span> {</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>  stories<span class="op">:</span> [<span class="st">&quot;../src/**/*.mdx&quot;</span><span class="op">,</span> <span class="st">&quot;../src/**/*.stories.@(js|jsx|mjs|ts|tsx)&quot;</span>]<span class="op">,</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>  addons<span class="op">:</span> [</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>    <span class="st">&quot;@storybook/addon-onboarding&quot;</span><span class="op">,</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>    <span class="st">&quot;@storybook/addon-links&quot;</span><span class="op">,</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>    <span class="st">&quot;@storybook/addon-essentials&quot;</span><span class="op">,</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>    <span class="st">&quot;@chromatic-com/storybook&quot;</span><span class="op">,</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>    <span class="st">&quot;@storybook/addon-interactions&quot;</span><span class="op">,</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a>  ]<span class="op">,</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a>  framework<span class="op">:</span> {</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a>    name<span class="op">:</span> <span class="st">&quot;@storybook/react-vite&quot;</span><span class="op">,</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a>    options<span class="op">:</span> {}<span class="op">,</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true"></a>export default config<span class="op">;</span></span></code></pre></div>
+</section>
+<section id="now-we-can-write-a-interaction-test" class="slide level2">
+<h2>Now we can write a interaction test</h2>
+<ul>
+<li>We’ll focus on the header component for now</li>
+</ul>
 </section>
 <section id="section-9" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/track-event-type.png" /> <img data-src="./assets/assets/track-event-type-example.png" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>export const LoggedOut<span class="op">:</span> Story <span class="op">=</span> {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>  play<span class="op">:</span> <span class="fu">async</span> ({ canvasElement }) <span class="kw">=&gt;</span> {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>    const canvas <span class="op">=</span> <span class="fu">within</span>(canvasElement)<span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>    const loginButton <span class="op">=</span> await canvas<span class="op">.</span><span class="fu">getByRole</span>(<span class="st">&quot;button&quot;</span><span class="op">,</span> { name<span class="op">:</span> <span class="ss">/Log in/i</span> })<span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>    await userEvent<span class="op">.</span><span class="fu">click</span>(loginButton)<span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
+<ul>
+<li>Very simple example here, but we are getting the canvas element, finding the login button by role and clicking it. This is very similar to React Testing Library!</li>
+</ul>
 </section>
 <section id="section-10" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/track-analytics-identify.png" /></p>
+<p>We can write assertions on the results</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>export const LoggedOut<span class="op">:</span> Story <span class="op">=</span> {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>  play<span class="op">:</span> <span class="fu">async</span> ({ canvasElement }) <span class="kw">=&gt;</span> {</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a>    const canvas <span class="op">=</span> <span class="fu">within</span>(canvasElement)<span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a>    const loginButton <span class="op">=</span> await canvas<span class="op">.</span><span class="fu">getByRole</span>(<span class="st">&quot;button&quot;</span><span class="op">,</span> { name<span class="op">:</span> <span class="ss">/Log in/i</span> })<span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a>    await userEvent<span class="op">.</span><span class="fu">click</span>(loginButton)<span class="op">;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true"></a>    <span class="fu">expect</span>(await canvas<span class="op">.</span><span class="fu">getByText</span>(<span class="ss">/Welcome/i</span>))<span class="op">.</span><span class="fu">toBeInTheDocument</span>()<span class="op">;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
 </section>
-<section id="were-not-using-analytics-identify-much-across-our-apps" class="slide level2">
-<h2>We’re not using analytics Identify much across our apps</h2>
+<section id="lets-do-something-a-bit-more-cooler" class="slide level2">
+<h2>Let’s do something a bit more cooler!</h2>
+<ul>
+<li>Filling in a form and submitting it.</li>
+<li>For this I added a loading state to our Button component and also added a play function to our story for the interaction tests</li>
+</ul>
 </section>
 <section id="section-11" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/window-analytics-identify.png" /></p>
-</section></section>
-<section>
-<section id="time-for-a-scenario" class="title-slide slide level1">
-<h1>Time for a scenario</h1>
-
-</section>
-<section id="rob-is-wanting-to-know-when-a-patient-signs-an-agreement" class="slide level2">
-<h2>Rob is wanting to know when a patient signs an agreement</h2>
-<p>We think about this request</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>export const Loading<span class="op">:</span> Story <span class="op">=</span> {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>  args<span class="op">:</span> {</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>    label<span class="op">:</span> <span class="st">&quot;Button&quot;</span><span class="op">,</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>    loading<span class="op">:</span> false<span class="op">,</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>  decorators<span class="op">:</span> [</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a>    (Story) <span class="kw">=&gt;</span> {</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>      const [_args<span class="op">,</span> updateArgs] <span class="op">=</span> <span class="fu">useArgs</span>()<span class="op">;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a>      const handleSubmit <span class="op">=</span> (e<span class="op">:</span> FormEvent<span class="op">&lt;</span>HTMLFormElement<span class="op">&gt;</span>) <span class="kw">=&gt;</span> {</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a>        e<span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a>        <span class="fu">updateArgs</span>({ loading<span class="op">:</span> true })<span class="op">;</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true"></a>        <span class="co">// Simulate a request to the server</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true"></a>        <span class="fu">setTimeout</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true"></a>          <span class="fu">updateArgs</span>({ loading<span class="op">:</span> false })<span class="op">;</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true"></a>        }<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true"></a>      }<span class="op">;</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true"></a>      <span class="fu">return</span> (</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true"></a>        <span class="op">&lt;</span>form onSubmit<span class="op">=</span>{handleSubmit}<span class="op">&gt;</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true"></a>          <span class="op">&lt;</span>Story <span class="op">/&gt;</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true"></a>        <span class="op">&lt;/</span>form<span class="op">&gt;</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true"></a>      )<span class="op">;</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true"></a>    }<span class="op">,</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true"></a>  ]<span class="op">,</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true"></a>  play<span class="op">:</span> <span class="fu">async</span> ({ canvasElement }) <span class="kw">=&gt;</span> {</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true"></a>    const canvas <span class="op">=</span> <span class="fu">within</span>(canvasElement)<span class="op">;</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true"></a>    const button <span class="op">=</span> await canvas<span class="op">.</span><span class="fu">getByRole</span>(<span class="st">&quot;button&quot;</span><span class="op">,</span> { name<span class="op">:</span> <span class="ss">/Button/i</span> })<span class="op">;</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true"></a>    await userEvent<span class="op">.</span><span class="fu">click</span>(button)<span class="op">;</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
 </section>
 <section id="section-12" class="slide level2">
 <h2></h2>
-<p>Rob adds some more context that for every 100 agreements signed the developers will get a free pizza party.</p>
-</section>
-<section id="we-are-now-committed-to-the-work" class="slide level2">
-<h2>We are now committed to the work</h2>
-<p><img data-src="./assets/assets/lets-do-this.gif" /></p>
-</section>
-<section id="we-dont-need-an-event-for-this" class="slide level2">
-<h2>We don’t need an event for this</h2>
-<p>You’re right but for this presentation let’s pretend we do need this as an event for sending a patient an email through Braze for every agreement being signed</p>
-</section>
-<section id="we-need-to-ask-some-questions" class="slide level2">
-<h2>We need to ask some questions</h2>
-<ol type="1">
-<li>Do we want all agreements being emailed to patients or just specific ones?</li>
-<li>What properties do you need on that event?</li>
-<li>Is there any other events you foresee us needing to add?</li>
-</ol>
-</section>
-<section id="answers-are-in" class="slide level2">
-<h2>Answers are in</h2>
-<ol type="1">
-<li>We need all the agreements being emailed</li>
-<li>We need agreements name, the ip address, and the created at timestamp agreement to capture the version</li>
-<li>Nothing at the moment</li>
-</ol>
-</section>
-<section id="okay-lets-get-started" class="slide level2">
-<h2>Okay, let’s get started!</h2>
-</section>
-<section id="lets-make-an-event" class="slide level2">
-<h2>Let’s make an event</h2>
-<p>We need to figure out where to fire this event.</p>
+<p>Notice the use of decorators on the story level to wrap it within a form. Also notice the <code>useArgs</code> API, this allows us to change the args of the story and update the state of the component.</p>
 </section>
 <section id="section-13" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/thinking.gif" /></p>
-</section>
-<section id="we-need-to-fire-this-event-in-the-create-agreement-mutation" class="slide level2">
-<h2>We need to fire this event in the create agreement mutation!</h2>
+<p>With this done, let’s create a new sign up form component and add a story for it. I’ll be skipping the actual component code and just focusing on the story.</p>
 </section>
 <section id="section-14" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/agreements_code.png" /></p>
-</section>
-<section id="all-done" class="slide level2">
-<h2>All done!</h2>
-<p><img data-src="./assets/assets/jobs-finished.gif" /> <img data-src="./assets/assets/pizza-party.gif" /></p>
-</section>
-<section id="wait-a-minute-something-is-missing" class="slide level2">
-<h2>Wait a minute… Something is missing</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="im">import</span> <span class="im">type</span> { Meta<span class="op">,</span> StoryObj } from <span class="st">&quot;@storybook/react&quot;</span><span class="op">;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="im">import</span> { Signup } from <span class="st">&quot;./Signup&quot;</span><span class="op">;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>const meta <span class="op">=</span> {</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a>  title<span class="op">:</span> <span class="st">&quot;Example/Signup&quot;</span><span class="op">,</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>  component<span class="op">:</span> Signup<span class="op">,</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a>  parameters<span class="op">:</span> {</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a>    layout<span class="op">:</span> <span class="st">&quot;fullscreen&quot;</span><span class="op">,</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true"></a>} satisfies Meta<span class="op">&lt;</span>typeof Signup<span class="op">&gt;;</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true"></a>export default meta<span class="op">;</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true"></a><span class="kw">type</span> Story <span class="op">=</span> StoryObj<span class="op">&lt;</span>typeof meta<span class="op">&gt;;</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true"></a>export const Default<span class="op">:</span> Story <span class="op">=</span> {}<span class="op">;</span></span></code></pre></div>
 </section>
 <section id="section-15" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/aint-much.jpg" /></p>
-</section>
-<section id="lets-write-a-test-for-this-work" class="slide level2">
-<h2>Let’s write a test for this work</h2>
-<p>But we don’t want to actually be calling Segment when firing events. Let’s talk about mocks</p>
-</section>
-<section id="rspec-mocking" class="slide level2">
-<h2>RSpec Mocking</h2>
-<p>When writing tests in our code we can leverage mocks to isolate our tests to focus on the actual code being tested and not the state of external dependencies.</p>
-</section>
-<section id="time-to-test" class="slide level2">
-<h2>Time to test</h2>
-<p>Let’s first allow the test to receive the braze track method which will enable mocking on that method!</p>
+<p>Now we can write our play function and do our assertions</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a>export const Default<span class="op">:</span> Story <span class="op">=</span> {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>  play<span class="op">:</span> <span class="fu">async</span> ({ canvasElement }) <span class="kw">=&gt;</span> {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a>    const canvas <span class="op">=</span> <span class="fu">within</span>(canvasElement)<span class="op">;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a>    const email <span class="op">=</span> canvas<span class="op">.</span><span class="fu">getByLabelText</span>(<span class="ss">/Email/i</span>)<span class="op">;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a>    <span class="fu">expect</span>(email)<span class="op">.</span><span class="fu">toBeInTheDocument</span>()<span class="op">;</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true"></a>    await userEvent<span class="op">.</span><span class="fu">type</span>(email<span class="op">,</span> <span class="st">&quot;test@example.com&quot;</span><span class="op">,</span> {</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true"></a>      delay<span class="op">:</span> <span class="dv">100</span><span class="op">,</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true"></a>    })<span class="op">;</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true"></a>    const password <span class="op">=</span> canvas<span class="op">.</span><span class="fu">getByLabelText</span>(<span class="ss">/Password/i</span>)<span class="op">;</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true"></a>    <span class="fu">expect</span>(password)<span class="op">.</span><span class="fu">toBeInTheDocument</span>()<span class="op">;</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true"></a>    await userEvent<span class="op">.</span><span class="fu">type</span>(password<span class="op">,</span> <span class="st">&quot;test123&quot;</span><span class="op">,</span> {</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true"></a>      delay<span class="op">:</span> <span class="dv">100</span><span class="op">,</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true"></a>    })<span class="op">;</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true"></a></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true"></a>    const submit <span class="op">=</span> canvas<span class="op">.</span><span class="fu">getByRole</span>(<span class="st">&quot;button&quot;</span><span class="op">,</span> {</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true"></a>      name<span class="op">:</span> <span class="ss">/Create account/i</span><span class="op">,</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true"></a>    })<span class="op">;</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true"></a></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true"></a>    await userEvent<span class="op">.</span><span class="fu">click</span>(submit)<span class="op">;</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true"></a></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true"></a>    const loader <span class="op">=</span> await canvas<span class="op">.</span><span class="fu">getByRole</span>(<span class="st">&quot;img&quot;</span><span class="op">,</span> { name<span class="op">:</span> <span class="ss">/loader/i</span> })<span class="op">;</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true"></a>    <span class="fu">expect</span>(loader)<span class="op">.</span><span class="fu">toBeInTheDocument</span>()<span class="op">;</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true"></a></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true"></a>    await <span class="fu">waitFor</span>(() <span class="kw">=&gt;</span> <span class="fu">expect</span>(loader)<span class="op">.</span><span class="at">not</span><span class="op">.</span><span class="fu">toBeInTheDocument</span>())<span class="op">;</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
 </section>
 <section id="section-16" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/agreements-spec-example-01.png" /></p>
-</section>
-<section id="now-lets-run-our-mutation" class="slide level2">
-<h2>Now let’s run our mutation</h2>
+<p><video data-src="./assets/assets/signup-passing-demo.mp4" controls=""><a href="./assets/assets/signup-passing-demo.mp4">Video</a></video></p>
 </section>
 <section id="section-17" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/agreements-spec-example-02.png" /></p>
+<p>This is just the surface of what the play functions can do. We are able to showcase interactions and also assert behaviour of our components right in Storybook!</p>
 </section>
-<section id="next-we-need-to-do-our-assertions" class="slide level2">
-<h2>Next, we need to do our assertions</h2>
+<section id="visual-regression-testing" class="slide level2">
+<h2>Visual regression testing</h2>
+<ul>
+<li>Helps us catch bugs in appearances of our components.</li>
+<li>Works by capturing a screenshot of every story and storing that history and do a comparison.</li>
+<li>Great support with Storybook through Chromatic</li>
+</ul>
+</section>
+<section id="chromatic" class="slide level2">
+<h2>Chromatic</h2>
+<ul>
+<li>Storybook has a service called Chromatic that helps teams conduct visual regression testing.</li>
+<li>Chromatic has a free plan for visual testing for 5,000 free snapshots per month on unlimited projects w/ Git and CI integrations.</li>
+<li>Pretty generous!</li>
+</ul>
 </section>
 <section id="section-18" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/analytics-track-assertion.png" /></p>
+<p>Signing up to Chromatic is easy throught GitHub. Just authorize and then select the repository you want to use for your Storybook.</p>
 </section>
 <section id="section-19" class="slide level2">
 <h2></h2>
-<p>We expected the AnalyticsService to be called twice without actually calling out to Segment at all!</p>
-</section>
-<section id="lets-verify-this-is-working" class="slide level2">
-<h2>Let’s verify this is working!</h2>
-</section>
-<section id="admin-app" class="slide level2">
-<h2>Admin App ✅</h2>
-<p><img data-src="./assets/assets/agreement-event-firing.png" /></p>
-</section>
-<section id="segment" class="slide level2">
-<h2>Segment</h2>
-<p>Now that we verified it is firing within our app and being stored in the events table, let’s check if it’s being sent to Segment!</p>
+<p>Let’s install Chromatic</p>
+<pre class="shell"><code>npm install --save-dev chromatic</code></pre>
 </section>
 <section id="section-20" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/segment_step_1.png" /></p>
+<p>And now we can manually publish our Storybook to Chromatic</p>
+<pre class="shell"><code>npx chromatic --project-token=chpt_TOKEN_HERE</code></pre>
 </section>
 <section id="section-21" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/segment_step_2.png" /></p>
+<p>This will authenticate with Chromatic, retrieve git information, collect metadata on Storybook, build our Storybook, and publish that to Chromatic.</p>
 </section>
 <section id="section-22" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/segment_step_3.png" /></p>
+<p>We can see our demo components in Chromatic now</p>
+<p><img data-src="./assets/assets/chromatic-publish.png" /></p>
 </section>
 <section id="section-23" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/segment_step_4.png" /></p>
+<p>Now that we’ve published our Storybook to Chromatic. Let’s wire it up to our Storybook instance locally!</p>
 </section>
-<section id="braze" class="slide level2">
-<h2>Braze</h2>
-<p>Now that Segment is verified, let’s go check in on Braze and see if we’re able to see the event under the “Custom Events” box in the profile</p>
+<section id="add-the-chromatic-addon-to-our-storybook-config" class="slide level2">
+<h2>Add the Chromatic addon to our Storybook config</h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a>npx storybook@latest add @chromatic<span class="op">-</span>com<span class="op">/</span>storybook</span></code></pre></div>
 </section>
 <section id="section-24" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/braze_step_1.png" /></p>
+<p>Now when viewing a story we can click “Visual Tests” menu and SSO into Chromatic.</p>
 </section>
 <section id="section-25" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/braze_step_2.png" /></p>
+<p><img data-src="./assets/assets/chromatic-waiting-change.png" /></p>
 </section>
 <section id="section-26" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/braze_step_3.png" /></p>
-</section>
-<section id="sudden-request" class="slide level2">
-<h2>Sudden request!</h2>
-<p>The event has been in production now for some time and a request has come up to fire an event whenever the agreement has been viewed on the front-end.</p>
-</section>
-<section id="lets-do-this" class="slide level2">
-<h2>Let’s do this!</h2>
-</section>
-<section id="first-lets-make-a-typed-event-in-track-event.ts" class="slide level2">
-<h2>First, let’s make a typed event in track-event.ts</h2>
+<p>Chromatic has built our initial Storybook from the manual command we ran earlier. It is now awaiting for a change to be to the Storybook.</p>
 </section>
 <section id="section-27" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/agreement-viewed-example.png" /></p>
+<p><video data-src="./assets/assets/chromatic-diff.mp4" controls=""><a href="./assets/assets/chromatic-diff.mp4">Video</a></video></p>
 </section>
 <section id="section-28" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/agreements-example-2.png" /></p>
-</section>
-<section id="now-lets-use-this-event-in-our-app" class="slide level2">
-<h2>Now, let’s use this event in our app!</h2>
-<p><img data-src="./assets/assets/pending-agreement-gate-code.png" /></p>
-</section>
-<section id="now-lets-write-a-test-for-this" class="slide level2">
-<h2>Now, let’s write a test for this!</h2>
-<p><img data-src="./assets/assets/tracks-test.png" /></p>
-</section>
-<section id="since-we-dont-store-these-events-in-our-heroku-database-we-need-to-verify-in-segment" class="slide level2">
-<h2>Since we don’t store these events in our Heroku database, we need to verify in Segment</h2>
+<p>Chromatic detected the change and did a comparison and we had to approve this. This doesn’t have to be a developer, it could be a designer, product manager, etc!</p>
 </section>
 <section id="section-29" class="slide level2">
 <h2></h2>
-<p>The steps for verifying Segment are the same as the back-end example so I’ll spare the repetition!</p>
-</section>
-<section id="another-request" class="slide level2">
-<h2>Another request!</h2>
-<p>A new request has come in, we want to add a custom attribute in Braze for the number of agreements signed by the patient.</p>
-</section>
-<section id="we-can-do-this-with-segment-traits-on-the-user" class="slide level2">
-<h2>We can do this with segment traits on the user!</h2>
+<p>Now when we run the visual tests again we can see no changes are detected.</p>
+<p><img data-src="./assets/assets/no-visual-changes.png" /></p>
 </section>
 <section id="section-30" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/segment_traits.png" /></p>
+<p>From this point, we would establish a CI/CD integration with Chromatic which will handle all the Storybook uploading piece and then tie the actions required to the specific pull request to approve the regressions or deny if they are not intended.</p>
 </section>
-<section id="how-does-this-get-to-braze" class="slide level2">
-<h2>How does this get to Braze?</h2>
-<p>We are able to call identify again and pass in the new segment properties which then should map over to Braze. Whenever the patient updates their profile this should happen and it also occurs at sign up.</p>
+<section id="accessibility-testing" class="slide level2">
+<h2>Accessibility testing</h2>
+<ul>
+<li>Storybook can help build inclusive experiences for all users by ensuring we’re passing common accessibility checks.</li>
+<li>We can leverage the Accessibility addon to do this.</li>
+</ul>
 </section>
-<section id="alright-were-all-good-now" class="slide level2">
-<h2>Alright, we’re all good now!</h2>
+<section id="install" class="slide level2">
+<h2>Install</h2>
+<pre class="shell"><code>npm install @storybook/addon-a11y --save-dev</code></pre>
 </section>
 <section id="section-31" class="slide level2">
 <h2></h2>
-<p><img data-src="./assets/assets/pizza_time.gif" /></p>
-<style>
-#section-16 p > img {
-  width: 650px;
-}
-</style>
-</section></section>
-<section>
-<section id="considerations-you-should-make" class="title-slide slide level1">
-<h1>Considerations you should make</h1>
-
+<p>And add it to our Storybook config</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="im">import</span> <span class="im">type</span> { StorybookConfig } from <span class="st">&quot;@storybook/react-vite&quot;</span><span class="op">;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a>const config<span class="op">:</span> StorybookConfig <span class="op">=</span> {</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a>  stories<span class="op">:</span> [<span class="st">&quot;../src/**/*.mdx&quot;</span><span class="op">,</span> <span class="st">&quot;../src/**/*.stories.@(js|jsx|mjs|ts|tsx)&quot;</span>]<span class="op">,</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a>  addons<span class="op">:</span> [</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true"></a>    <span class="st">&quot;@storybook/addon-onboarding&quot;</span><span class="op">,</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true"></a>    <span class="st">&quot;@storybook/addon-links&quot;</span><span class="op">,</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true"></a>    <span class="st">&quot;@storybook/addon-essentials&quot;</span><span class="op">,</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true"></a>    <span class="st">&quot;@chromatic-com/storybook&quot;</span><span class="op">,</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true"></a>    <span class="st">&quot;@storybook/addon-interactions&quot;</span><span class="op">,</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true"></a>    <span class="st">&quot;@storybook/addon-a11y&quot;</span><span class="op">,</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true"></a>  ]<span class="op">,</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true"></a>  framework<span class="op">:</span> {</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true"></a>    name<span class="op">:</span> <span class="st">&quot;@storybook/react-vite&quot;</span><span class="op">,</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true"></a>    options<span class="op">:</span> {}<span class="op">,</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true"></a>export default config<span class="op">;</span></span></code></pre></div>
 </section>
-<section id="event-names" class="slide level2">
-<h2>Event names</h2>
-<p>It’s worth highlighting that updating event names can break reports and also cause issues in our lifecycle communications. In short, if you’re updating an existing name it’s likely you’re impacting another department!</p>
+<section id="section-32" class="slide level2">
+<h2></h2>
+<p>And that’s it!</p>
 </section>
-<section id="bigquery" class="slide level2">
-<h2>BigQuery</h2>
-<p>Something worth highlighting is each event name we have creates a new table within BigQuery! This can make things complex for our data team. You should try to prefer generic names that can be differentiated with properties rather than unique names</p>
+<section id="section-33" class="slide level2">
+<h2></h2>
+<p><img data-src="./assets/assets/storybook-accessibility-results.png" /></p>
 </section>
-<section id="for-example" class="slide level2">
-<h2>For example</h2>
-<p>Shopping Cart Button Clicked could actually be Button Clicked and the property can have a “type” identifier for ShoppingCart</p>
-</section>
-<section id="a-braze-consideration-on-generic-names" class="slide level2">
-<h2>A Braze consideration on generic names</h2>
-<p>Generic names can be leveraged in Braze to trigger or track conversions. They however, cannot be used to segment users and populate custom data. There are options available such as webhooks to tweak the data to incorporate into Braze.</p>
-</section>
-<section id="for-braze-just-ensure-were-all-on-the-same-page-and-understand-trade-offs-for-generic-vs-unique-event-names." class="slide level2">
-<h2>For Braze, just ensure we’re all on the same page and understand trade-offs for generic vs unique event names.</h2>
-<p>It’s likely an event will need to drill further into just triggering and conversion tracking so be sure to work closely with lifecycle on new events and existing event updates!</p>
-</section></section>
-<section>
-<section id="recap" class="title-slide slide level1">
-<h1>Recap</h1>
-<p><img data-src="./assets/assets/brooklyn-99.gif" /></p>
-</section>
-<section id="segment-1" class="slide level2">
-<h2>Segment</h2>
-<p>Segment is our CDP that our events get emitted to and then funneled to various destinations all managed through the Dashboard</p>
-</section>
-<section id="braze-1" class="slide level2">
-<h2>Braze</h2>
-<p>Braze is our customer engagement tool that allows us to engage with a segment of patients when various events fire in our apps</p>
-</section>
-<section id="analytics-service-segment-service-and-pmanalytics" class="slide level2">
-<h2>Analytics Service, Segment Service, and <span class="citation" data-cites="pm/analytics">@pm/analytics</span></h2>
-<p>We have AnalyticsService in our toolkit for firing events to Segment from our back-end which uses SegmentService</p>
-<p>We have <span class="citation" data-cites="pm/analytics">@pm/analytics</span> on the front-end to fire front-end events that go directly to Segment and then mapped to various destinations</p>
-</section>
-<section id="track-vs-braze-track" class="slide level2">
-<h2>Track vs Braze Track</h2>
-<p>In AnalyticsService we have track and braze_track, braze_track is just calling into track but it’s passing braze as true in the properties to ensure this event goes to Braze!</p>
-<p>Track will not send to Braze by default!</p>
-</section>
-<section id="impacts" class="slide level2">
-<h2>Impacts</h2>
-<p>When making updates to existing events or adding new events it’s important to inform other departments such as marketing, ops, and data.</p>
-<p>If you’re updating an existing event you’re likely going to cause an issue downstream so be sure to coordinate!</p>
-<p>When adding new events, coordinate with other teams to ensure the event makes sense for their workflows and be on the same page!</p>
+<section id="recap" class="slide level2">
+<h2>Recap</h2>
+<p><img data-src="./assets/assets/sleepy.gif" /></p>
 </section>
 <section id="thanks-any-questions" class="slide level2">
 <h2>Thanks, any questions?</h2>
-<p><img data-src="./assets/assets/presentation-over.gif" /></p>
-<script>
-/* Global Styles go here */
-
-
-
-</script>
-<style>
-.reveal pre, .reveal code {
-  background: white;
-}
-
-.reveal img {
-  max-height: 84vh;
-  width: auto;
-}
-</style>
 </section></section>
     </div>
   </div>
