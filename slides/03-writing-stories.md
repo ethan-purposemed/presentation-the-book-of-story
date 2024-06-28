@@ -6,7 +6,7 @@
 
 ## Writing stories
 
-- Conventionally stories are written in a `*.stories.js` or `*.story.ts` file.
+- Conventionally stories are written in a `*.stories.js` or `*.stories.ts` file.
 - Stories are written in the Component Story Format which is based on ESM
 - Additional exports will be used to capture the distinct states of that component.
 

@@ -33,6 +33,8 @@ Storybook supports:
 - These UI components can be difficult to test due to being tangled up with the rest of the application logic.
 - By leveraging Storybook we can build in isolation which is a benefit for both developers, designers, and testers. Developer especially benefits from this as it allows them to focus on the component and not the rest of the application and actually is a good way to right components that are easy to test and not tied to any external dependencies.
 
+## Walkthrough
+
 ### Writing stories
 
 - Conventionally stories are written in a `*.stories.js` or `*.story.ts` file.

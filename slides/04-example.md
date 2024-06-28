@@ -311,7 +311,7 @@ Now when viewing a story we can click "Visual Tests" menu and SSO into Chromatic
 
 ##
 
-Chromatic has built our initial Storybook from the manual command we ran earlier. It is now awaiting for a change to be to the Storybook.
+Chromatic has built our initial Storybook from the manual command we ran earlier. It is now waiting for a change to be made to our Storybook.
 
 ##
 
